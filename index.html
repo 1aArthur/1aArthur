@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arthur - Contato</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            overflow: hidden;
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 4s infinite;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.2; }
+            50% { opacity: 1; }
+            100% { opacity: 0.2; }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(135deg, rgba(40, 40, 80, 0.8), rgba(20, 20, 30, 0.9));
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 0 35px rgba(100, 100, 255, 0.2);
+            max-width: 550px;
+            width: 90%;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            font-size: 2.8rem;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+            background: linear-gradient(45deg, #ffffff, #a9c9ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-pic i {
+            font-size: 60px;
+            color: #ddd;
+        }
+
+        .contact-info {
+            margin-bottom: 35px;
+        }
+
+        .contact-item {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .contact-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 18px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            gap: 12px;
+        }
+
+        .btn i {
+            font-size: 1.4rem;
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(45deg, #25d366, #128C7E);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+        }
+
+        .btn-instagram {
+            background: linear-gradient(45deg, #833AB4, #C13584, #E1306C, #FD1D1D);
+            box-shadow: 0 6px 20px rgba(225, 48, 108, 0.5);
+        }
+
+        .btn-email {
+            background: linear-gradient(45deg, #4285F4, #34A853);
+            box-shadow: 0 6px 20px rgba(66, 133, 244, 0.5);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
+        }
+
+        .shooting-star {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 4px;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 0 0 5px 2px white;
+            animation: shoot 8s linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes shoot {
+            0% { 
+                transform: translate(0, 0) rotate(315deg);
+                opacity: 0;
+            }
+            1% { opacity: 1; }
+            10% { 
+                transform: translate(500px, 500px) rotate(315deg);
+                opacity: 0;
+            }
+            100% { 
+                transform: translate(500px, 500px) rotate(315deg);
+                opacity: 0;
+            }
+        }
+
+        footer {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    <div id="shooting-stars"></div>
+    
+    <div class="container">
+        <div class="profile-pic">
+            <i class="fas fa-user"></i>
+        </div>
+        <h1>Arthur</h1>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <p><i class="fab fa-whatsapp"></i> WhatsApp: (83) 98194-7261</p>
+            </div>
+            <div class="contact-item">
+                <p><i class="fab fa-instagram"></i> Instagram: @a4rth_ur</p>
+            </div>
+            <div class="contact-item">
+                <p><i class="far fa-envelope"></i> E-mail: arthurlorenco78@gmail.com</p>
+            </div>
+        </div>
+        
+        <div class="contact-buttons">
+            <a href="https://wa.me/5583981947261" class="btn btn-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i> Falar pelo WhatsApp
+            </a>
+            <a href="https://instagram.com/a4rth_ur" class="btn btn-instagram" target="_blank">
+                <i class="fab fa-instagram"></i> Seguir no Instagram
+            </a>
+            <a href="mailto:arthurlorenco78@gmail.com" class="btn btn-email" target="_blank">
+                <i class="far fa-envelope"></i> Enviar E-mail
+            </a>
+        </div>
+    </div>
+    
+    <footer>
+        &copy; 2025 Arthur - Todos os direitos reservados
+    </footer>
+
+    <script>
+        // Criação das estrelas com efeito melhorado
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const numberOfStars = 300;
+            
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // Tamanho aleatório com maior variação
+                const size = Math.random() * 4 + 1;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                
+                // Posição aleatória
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                
+                // Atraso na animação com maior variação
+                star.style.animationDelay = `${Math.random() * 6}s`;
+                
+                // Adicionar brilho para algumas estrelas
+                if (Math.random() > 0.7) {
+                    star.style.boxShadow = `0 0 ${Math.random() * 5 + 2}px rgba(255, 255, 255, 0.8)`;
+                }
+                
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        // Criação de estrelas cadentes
+        function createShootingStars() {
+            const container = document.getElementById('shooting-stars');
+            const numberOfStars = 5;
+            
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.classList.add('shooting-star');
+                
+                // Posição inicial aleatória
+                const startX = Math.random() * window.innerWidth;
+                const startY = Math.random() * window.innerHeight * 0.5;
+                star.style.left = `${startX}px`;
+                star.style.top = `${startY}px`;
+                
+                // Atraso aleatório
+                star.style.animationDelay = `${Math.random() * 15}s`;
+                
+                container.appendChild(star);
+            }
+        }
+        
+        // Efeito parallax suave para as estrelas
+        function parallaxEffect() {
+            document.addEventListener('mousemove', (e) => {
+                const stars = document.querySelectorAll('.star');
+                const mouseX = e.clientX / window.innerWidth;
+                const mouseY = e.clientY / window.innerHeight;
+                
+                stars.forEach(star => {
+                    const depth = Math.random() * 0.5;
+                    const moveX = mouseX * depth * 20;
+                    const moveY = mouseY * depth * 20;
+                    
+                    star.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                });
+            });
+        }
+        
+        // Efeito nos botões ao passar o mouse
+        function buttonEffects() {
+            const buttons = document.querySelectorAll('.btn');
+            
+            buttons.forEach(btn => {
+                btn.addEventListener('mouseenter', () => {
+                    btn.style.letterSpacing = '1px';
+                });
+                
+                btn.addEventListener('mouseleave', () => {
+                    btn.style.letterSpacing = 'normal';
+                });
+            });
+        }
+        
+        // Inicializar todos os efeitos quando a página carregar
+        window.addEventListener('load', () => {
+            createStars();
+            createShootingStars();
+            parallaxEffect();
+            buttonEffects();
+        });
+    </script>
+</body>
+</html>
